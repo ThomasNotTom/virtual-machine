@@ -15,7 +15,7 @@ TEST_CASE("Memory set and get 1 byte value", "[memory]") {
 
 TEST_CASE("Memory set and get 2 byte value", "[memory]") {
   const uint16_t TEST_VALUE = UINT16_MAX;
-  Memory memory(1);
+  Memory memory(2);
   memory.set16(0, TEST_VALUE);
   uint16_t value;
   memory.get16(0, value);
@@ -24,7 +24,7 @@ TEST_CASE("Memory set and get 2 byte value", "[memory]") {
 
 TEST_CASE("Memory set and get 4 byte value", "[memory]") {
   const uint32_t TEST_VALUE = UINT32_MAX;
-  Memory memory(1);
+  Memory memory(4);
   memory.set32(0, TEST_VALUE);
   uint32_t value;
   memory.get32(0, value);
@@ -33,7 +33,7 @@ TEST_CASE("Memory set and get 4 byte value", "[memory]") {
 
 TEST_CASE("Memory set and get 8 byte value", "[memory]") {
   const uint64_t TEST_VALUE = UINT64_MAX;
-  Memory memory(1);
+  Memory memory(8);
   memory.set64(0, TEST_VALUE);
   uint64_t value;
   memory.get64(0, value);
