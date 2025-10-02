@@ -14,7 +14,7 @@ TEST_CASE("Memory set and get 1 byte value", "[memory]") {
 }
 
 TEST_CASE("Memory set and get 2 byte value", "[memory]") {
-  const uint8_t TEST_VALUE = UINT16_MAX;
+  const uint16_t TEST_VALUE = UINT16_MAX;
   Memory memory(1);
   memory.set16(0, TEST_VALUE);
   uint16_t value;
