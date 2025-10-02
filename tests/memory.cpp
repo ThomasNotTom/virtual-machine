@@ -21,3 +21,12 @@ TEST_CASE("Memory set and get 2 byte value", "[memory]") {
   memory.get16(0, value);
   REQUIRE(value == TEST_VALUE);
 }
+
+TEST_CASE("Memory set and get 4 byte value", "[memory]") {
+  const uint32_t TEST_VALUE = UINT32_MAX;
+  Memory memory(1);
+  memory.set32(0, TEST_VALUE);
+  uint32_t value;
+  memory.get32(0, value);
+  REQUIRE(value == TEST_VALUE);
+}
