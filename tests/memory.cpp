@@ -30,3 +30,12 @@ TEST_CASE("Memory set and get 4 byte value", "[memory]") {
   memory.get32(0, value);
   REQUIRE(value == TEST_VALUE);
 }
+
+TEST_CASE("Memory set and get 8 byte value", "[memory]") {
+  const uint64_t TEST_VALUE = UINT64_MAX;
+  Memory memory(1);
+  memory.set64(0, TEST_VALUE);
+  uint64_t value;
+  memory.get64(0, value);
+  REQUIRE(value == TEST_VALUE);
+}
