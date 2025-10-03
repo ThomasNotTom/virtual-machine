@@ -11,8 +11,9 @@ private:
 
 public:
   Value(uint64_t data) : data(data), hops(0) {};
+  Value(uint64_t data, uint64_t hops) : data(data), hops(hops) {};
 
-  bool hop(const Memory& memory, uint64_t& out) {
+  bool hop(const Memory& memory) {
     if (this->hops == 0) {
       return false;
     }
