@@ -12,6 +12,5 @@ protected:
 
 public:
   Operator(const Value& arg1, const Value& arg2) : arg1(arg1), arg2(arg2) {};
-  virtual uint64_t operate(Memory& memory, StackPointer& sp,
-                           const Value& out) = 0;
+  virtual uint64_t operate(Memory& memory, const Value& out) = 0;
 };
