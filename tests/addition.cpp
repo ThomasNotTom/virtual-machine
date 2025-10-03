@@ -12,8 +12,7 @@ TEST_CASE("Add two 1 byte values", "[operator]") {
   Memory memory(1);
   Addition addition = {TEST_VALUE_1, TEST_VALUE_2};
 
-  StackPointer stackPointer = {0};
-  addition.operate(memory, stackPointer, {0});
+  addition.operate(memory, {0});
 
   uint8_t value;
   memory.get8(0, value);
