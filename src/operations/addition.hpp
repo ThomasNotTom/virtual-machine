@@ -2,11 +2,11 @@
 
 #include "../operator/operator.hpp"
 
-class Addition : Operator {
+class Addition : public Operator {
 public:
   Addition(const Value& arg1, const Value& arg2) : Operator(arg1, arg2) {};
 
-  uint64_t operate(Memory& memory, const Value& out) override {
+  bool operate(StackPointer& sp, Memory& memory, const Value& out) override {
     Value arg1Copy = this->arg1;
     Value arg2Copy = this->arg2;
 
@@ -16,5 +16,9 @@ public:
       ;
 
     memory.set8(out.getData(), arg1Copy.getData() + arg2Copy.getData());
+
+    sp.increment();
+
+    return false;
   }
 };
