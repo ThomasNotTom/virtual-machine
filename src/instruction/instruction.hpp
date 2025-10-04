@@ -1,14 +1,17 @@
-#include "../operator/operator.hpp"
+#pragma once
 
-template <typename T>
+#include "../operator/operator.hpp"
 
 class Instruction {
 private:
-  T op;
+  std::unique_ptr<Operator> op;
   Value output;
 
 public:
-  Instruction(Value output, T op) : op(op), output(output) {}
+  Instruction(std::unique_ptr<Operator> op, Value output)
+      : op(std::move(op)), output(output) {}
 
-  void execute(Memory& memory) { this->op.operate(memory, output); }
+  bool execute(StackPointer& sp, Memory& memory) {
+    return this->op->operate(sp, memory, output);
+  }
 };
