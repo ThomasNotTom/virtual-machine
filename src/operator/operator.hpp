@@ -11,6 +11,9 @@ protected:
   const Value arg2;
 
 public:
+  Operator() : arg1({}), arg2({}) {};
+  Operator(const Value& arg1) : arg1(arg1), arg2({}) {};
   Operator(const Value& arg1, const Value& arg2) : arg1(arg1), arg2(arg2) {};
-  virtual uint64_t operate(Memory& memory, const Value& out) = 0;
+  virtual bool operate(StackPointer& sp, Memory& memory, const Value& out) = 0;
+  virtual ~Operator() = default;
 };
