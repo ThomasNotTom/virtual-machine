@@ -4,29 +4,24 @@
 #include <iostream>
 #include <vector>
 
+#include "../value/value.hpp"
+
 class Memory {
 private:
   std::vector<uint8_t> data;
 
 public:
-  Memory(uint64_t size) { data.resize(size); }
-  bool get8(const uint64_t location, uint8_t& out) const {
-    if (location > this->data.size()) {
-      return false;
-    }
+  Memory(uint64_t size);
+  bool get8(const uint64_t location, uint8_t& out) const;
 
-    out = this->data[location];
-
-    return true;
-  }
-
-  bool set8(const uint64_t location, const uint8_t in) {
+  bool set8(const uint64_t location, const uint8_t in, Value& value) {
     if (location > this->data.size()) {
       return false;
     }
 
     this->data[location] = in;
 
+    value = Value(location, 1);
     return true;
   }
 
