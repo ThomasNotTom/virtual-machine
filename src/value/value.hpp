@@ -2,26 +2,19 @@
 
 #include <cstdint>
 
-#include "../memory/memory.hpp"
+class Memory;
 
 class Value {
 private:
   uint64_t hops;
-  uint64_t data;
+  uint8_t data;
 
 public:
-  Value(uint64_t data) : data(data), hops(0) {};
-  Value(uint64_t data, uint64_t hops) : data(data), hops(hops) {};
+  Value() : data(0), hops(0) {};
+  Value(uint8_t data) : data(data), hops(0) {};
+  Value(uint8_t data, uint64_t hops) : data(data), hops(hops) {};
 
-  bool hop(const Memory& memory) {
-    if (this->hops == 0) {
-      return false;
-    }
+  bool hop(const Memory& memory);
 
-    memory.get64(this->data, this->data);
-    this->hops--;
-    return true;
-  };
-
-  uint64_t getData() const { return this->data; }
+  uint8_t getData() const { return this->data; }
 };
