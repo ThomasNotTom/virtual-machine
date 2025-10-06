@@ -4,9 +4,7 @@
 
 class Halt : public Operator {
 public:
-  Halt() : Operator() {};
+  Halt();
 
-  bool operate(StackPointer& sp, Memory& memory, const Value& out) override {
-    return true;
-  }
+  bool operate(StackPointer& sp, Memory& memory, const Value& out) override;
 };
