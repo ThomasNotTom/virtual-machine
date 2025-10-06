@@ -15,7 +15,8 @@ public:
     while (arg2Copy.hop(memory))
       ;
 
-    memory.set8(out.getData(), arg1Copy.getData() + arg2Copy.getData());
+    Value _;
+    memory.set8(out.getData(), arg1Copy.getData() + arg2Copy.getData(), _);
 
     sp.increment();
 
