@@ -8,10 +8,7 @@ private:
   Value output;
 
 public:
-  Instruction(std::unique_ptr<Operator> op, Value output)
-      : op(std::move(op)), output(output) {}
+  Instruction(std::unique_ptr<Operator> op, Value output);
 
-  bool execute(StackPointer& sp, Memory& memory) {
-    return this->op->operate(sp, memory, output);
-  }
+  bool execute(StackPointer& sp, Memory& memory);
 };
